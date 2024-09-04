@@ -1,15 +1,47 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner =  new Scanner(System.in);
+        String start = "계속";
+        while (start.equals("계속")){
+            System.out.printf("철수 >> ");
+            String player1 = scanner.next();
+            System.out.printf("영희 >> ");
+            String player2 = scanner.next();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+            if (player1.equals(player2)) {
+                System.out.println("비겼습니다.");
+            }
+            else if(player1.equals("가위")){
+                if(player2.equals("바위"))
+                    System.out.println("영희가 이겼습니다.");
+                else if (player2.equals("보")) {
+                    System.out.println("철수가 이겼습니다.");
+                }
+            }
+            else if(player1.equals("바위")){
+                if(player2.equals("보"))
+                    System.out.println("영희가 이겼습니다.");
+                else if (player2.equals("가위")) {
+                    System.out.println("철수가 이겼습니다.");
+                }
+            }
+            else if(player1.equals("보")){
+                if(player2.equals("가위"))
+                    System.out.println("영희가 이겼습니다.");
+                else if (player2.equals("바위")) {
+                    System.out.println("철수가 이겼습니다.");
+                }
+            }
+            System.out.println("\n계속하려면 '계속'을, 그만하려면 '그만'을 입력해 주세요.");
+            System.out.printf(">> ");
+            start = scanner.next();
+            System.out.printf("\n");
+            if(!start.equals("계속")){
+                System.out.println("프로그램을 종료합니다.");
+                break;
+            }
         }
     }
 }
